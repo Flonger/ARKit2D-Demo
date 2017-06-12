@@ -24,6 +24,7 @@
     // Set the view's delegate
     self.sceneView.delegate = self;
     
+    self.sceneView.backgroundColor = [UIColor colorNamed:@"红色"];
     // Show statistics such as fps and node count
     self.sceneView.showsFPS = YES;
     self.sceneView.showsNodeCount = YES;
@@ -61,7 +62,11 @@
 
 - (SKNode *)view:(ARSKView *)view nodeForAnchor:(ARAnchor *)anchor {
     // Create and configure a node for the anchor added to the view's session.
-    SKLabelNode *labelNode = [SKLabelNode labelNodeWithText:@"👾"];
+    NSArray  * array = @[@"😄",@"😆",@"😜",@"🤡"];
+    
+    NSString * string = array[arc4random_uniform(array.count)];
+    
+    SKLabelNode *labelNode = [SKLabelNode labelNodeWithText:string];
     labelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     labelNode.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     return labelNode;
